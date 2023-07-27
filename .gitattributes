@@ -1,0 +1,1 @@
+src/files/**/*.csv filter=lfs diff=lfs merge=lfs -text
