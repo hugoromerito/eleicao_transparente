@@ -1,0 +1,7 @@
+Pillow
+pandas
+unidecode
+matplotlib
+customtkinter
+CTkMessagebox
+CTkListbox
