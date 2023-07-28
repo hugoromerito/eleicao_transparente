@@ -58,7 +58,7 @@ def gerar_rel_rank_bairro(zone_votes,
                       & (df_zone_votes['NOME_CANDIDATO'] != selected_name), 'NOME_CANDIDATO'] = selected_name
 
     # Eliminar os votos nulos e brancos
-    df_zone_votes = df_zone_votes[~df_zone_votes['NM_VOTAVEL'].isin(['VOTO NULO', 'VOTO BRANCO', 'Branco', 'Nulo'])]
+    df_zone_votes = df_zone_votes[~df_zone_votes['NOME_CANDIDATO'].isin(['VOTO NULO', 'VOTO BRANCO', 'Branco', 'Nulo'])]
 
     # Filtrar apenas os seguintes registros
     df_zone_votes = df_zone_votes[(df_zone_votes['MUNICIPIO'] == county) &
