@@ -6,9 +6,13 @@
 ## Contexto
 A ideia deste projeto surgiu quando um vereador, para quem trabalho, me solicitou uma planilha dos votos recebidos por bairro na última eleição (2020). Embora eu tenha produzido essas informações manualmente após as eleições de 2020, os arquivos foram perdidos. Para evitar a repetição do trabalho manual e proporcionar uma solução mais sofisticada, decidi ir além do que me foi solicitado desenvolvendo essa aplicação.
 
+Nesse processo, percebi que o desafio não era apenas criar uma planilha mais complexa, mas também lidar com a dificuldade de acessar informações públicas. As informações, embora disponíveis, eram de difícil acesso devido à sua organização por seção e zona, e à falta de uma interface intuitiva. Essa percepção me levou a uma compreensão mais profunda: o acesso à informação é um direito, mas muitas vezes é um desafio.
+
+Assim, decidi transformar esse desafio em uma oportunidade. O projeto deixou de ser apenas uma solução para o meu problema e se tornou uma missão para tornar as informações mais acessíveis. Com o objetivo de criar uma plataforma intuitiva, onde qualquer pessoa possa acessar as informações necessárias sem esforço, decidi manter e expandir este projeto.
+
 O software foi criado para ir além de simplesmente produzir uma planilha de votos por bairro. Ele também é capaz de destacar os três candidatos mais votados por bairro e gerar um gráfico baseado nessas informações. Além disso, incluí uma funcionalidade que permite comparar os dados de várias eleições. Assim, pude gerar um relatório detalhado com comparativos entre as eleições em termos de dados e gráficos, observando onde o candidato ganhou ou perdeu votos.
 
-Através dessas análises, foi possível identificar a base eleitoral do candidato e os bairros com crescente apoio. Após a conclusão do relatório, criei uma interface gráfica para facilitar a busca de dados de outros candidatos sem necessidade de alterar o código-fonte.
+Através dessas análises, foi possível identificar a base eleitoral do candidato e os bairros com crescente apoio. Após a conclusão do relatório, criei uma interface gráfica para facilitar a busca de dados de outros candidatos sem necessidade de alterar o código-fonte. Esta interface é um reflexo do meu compromisso em tornar as informações públicas mais acessíveis e intuitivas para todos.
 
 ## Descrição
 Desenvolvido em Python e com uso da biblioteca customtkinter, este programa é uma ferramenta para a análise e processamento de dados eleitorais. Sua interface intuitiva e eficiente permite que o usuário busque informações sobre candidatos de eleições específicas, utilizando como critério de busca o CPF ou Nome.
