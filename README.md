@@ -34,9 +34,9 @@ Os resultados serão salvos como arquivos CSV na pasta "result", com o nome defi
 Finalmente, o programa cria um gráfico de barras, facilitando a visualização comparativa do desempenho do candidato em relação aos demais.
 
 <div style="display: flex; flex-direction: column;">
-<img src="./documentation_images/comparativo_votos.png" width="300"/>
-<img src="./documentation_images/perda_votos.png" width="300"/>
-<img src="./documentation_images/variation_votes.png" width="266"/>
+<img src="./documentation_images/comparativo_votos.png" width="200"/>
+<img src="./documentation_images/perda_votos.png" width="200"/>
+<img src="./documentation_images/variation_votes.png" width="166"/>
 </div>
 
 ## Modos de Visualização
