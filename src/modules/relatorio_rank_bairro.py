@@ -9,6 +9,7 @@ import pandas as pd
 import unidecode
 import matplotlib.pyplot as plt
 
+
 # Carrega os arquivos com os dados da apuracao e da lista de colegios
 # Separa a quantidade de votos do candidato por bairro
 # Realiza
@@ -38,36 +39,30 @@ def gerar_rel_rank_bairro(zone_votes,
 
     # Renomear as colunas do DataFrame de "colegios"
     df_schools = df_schools.rename(columns={'NUM_ZONA': 'ZONA',
-                                              'SECOES': 'SECAO',
-                                              'NOM_BAIRRO': 'BAIRRO'})
+                                            'SECOES': 'SECAO',
+                                            'NOM_BAIRRO': 'BAIRRO'})
 
     df_zone_votes['MUNICIPIO'] = df_zone_votes['MUNICIPIO'].apply(lambda x: unidecode.unidecode(x))
     df_zone_votes['NOME_CANDIDATO'] = df_zone_votes['NOME_CANDIDATO'].apply(lambda x: unidecode.unidecode(x))
     df_zone_votes['CARGO'] = df_zone_votes['CARGO'].str.upper()
 
-    # Converter os valores da coluna 'BAIRRO' para string
+    # Converter e os valores da coluna 'BAIRRO' para string
+    # Substitui os valores NaN por uma string vazia
+    # E aplica a funcao unidecode para remover acentos e caracteres especiais
     df_schools['BAIRRO'] = df_schools['BAIRRO'].astype(str)
-    # Substituir os valores NaN da coluna 'BAIRRO' por uma string vazia
     df_schools['BAIRRO'] = df_schools['BAIRRO'].replace('nan', '')
-    # Aplicar a funcao unidecode para remover acentos e caracteres especiais
     df_schools['BAIRRO'] = df_schools['BAIRRO'].apply(lambda x: unidecode.unidecode(x) if isinstance(x, str) else x)
-
 
     # Verificar e substituir os nomes de urna no DataFrame
     df_zone_votes.loc[df_zone_votes['NOME_CANDIDATO'].isin(urn_names)
                       & (df_zone_votes['NOME_CANDIDATO'] != selected_name), 'NOME_CANDIDATO'] = selected_name
 
+    # Eliminar os votos nulos e brancos
+    df_zone_votes = df_zone_votes[~df_zone_votes['NM_VOTAVEL'].isin(['VOTO NULO', 'VOTO BRANCO', 'Branco', 'Nulo'])]
 
     # Filtrar apenas os seguintes registros
-    if 'NR_VOTAVEL' in df_zone_votes.columns:
-        df_zone_votes = df_zone_votes[(df_zone_votes['MUNICIPIO'] == county) &
-                                      (df_zone_votes['CARGO'] == office) &
-                                      (~df_zone_votes['NR_VOTAVEL'].astype(str).str.len().eq(2))]
-    elif 'CD_TIPO_VOTAVEL' in df_zone_votes.columns:
-        df_zone_votes = df_zone_votes[(df_zone_votes['MUNICIPIO'] == county) &
-                                      (df_zone_votes['CARGO'] == office) &
-                                      (df_zone_votes['CD_TIPO_VOTAVEL'].isin([1, 4]))]
-
+    df_zone_votes = df_zone_votes[(df_zone_votes['MUNICIPIO'] == county) &
+                                  (df_zone_votes['CARGO'] == office)]
 
     # Realizar o merge dos dataframes utilizando as colunas 'NR_ZONA' e 'NR_SECAO' como chave de juncao
     df_merged = pd.merge(df_zone_votes, df_schools, on=['ZONA', 'SECAO'])
@@ -94,7 +89,6 @@ def gerar_rel_rank_bairro(zone_votes,
 
     # Salvar o resultado em um novo arquivo CSV
     df_filtered.to_csv(result_ranking_nbhd, index=False)
-
 
     df_pivot = df_filtered.pivot(index='BAIRRO', columns='NOME_CANDIDATO', values='VOTOS').fillna(0)
 
