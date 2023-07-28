@@ -631,9 +631,9 @@ class App(ctk.CTk):
 
         def submit_urn_name(selected_name, urn_names, office, county, output_file_name, zone_votes, schools):
             # Dicionário com os caminhos de saida dos arquivos na ordem: RELATORIO - RANKING
-            result_nbhd = f'./result/{output_file_name}_bairro.csv'
-            result_ranking_nbhd = f'./result/{output_file_name}_ranking_bairro.csv'
-            result_ranking_nbhd_graph = f'./result/{output_file_name}_ranking_grafico.png'
+            result_nbhd = f'./src/result/{output_file_name}_bairro.csv'
+            result_ranking_nbhd = f'./src/result/{output_file_name}_ranking_bairro.csv'
+            result_ranking_nbhd_graph = f'./src/result/{output_file_name}_ranking_grafico.png'
 
             self.btn_submit.place_forget()
             progressbar = ctk.CTkProgressBar(self,
