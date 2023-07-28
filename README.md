@@ -3,6 +3,8 @@
   <img src="./documentation_images/app_dark.png" width="600"/>
 </div>
 
+[Veja aqui o Relatório produzido com os dados obtidos pelo Eleição Transparente](./documentation_images/relatorio_eleitoral.pdf)
+
 ## Contexto
 A ideia deste projeto surgiu quando um vereador, para quem trabalho, me solicitou uma planilha dos votos recebidos por bairro na última eleição (2020). Embora eu tenha produzido essas informações manualmente após as eleições de 2020, os arquivos foram perdidos. Para evitar a repetição do trabalho manual e proporcionar uma solução mais sofisticada, decidi ir além do que me foi solicitado desenvolvendo essa aplicação.
 
