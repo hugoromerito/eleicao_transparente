@@ -92,7 +92,7 @@ Para instalar o projeto, você pode clonar o repositório usando git:
 git clone https://github.com/hugoromerito/eleicao_transparente.git
 ```
 
-Em seguida instale as dependências necessárias usando o comando visto no tópico "Requisitos"
+Em seguida instale as dependências necessárias usando o comando visto no tópico "Requisitos":
 ```
 pip install -r requirements.txt
 ```
